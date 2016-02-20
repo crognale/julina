@@ -1,12 +1,25 @@
 <template name="App">
   <h1>Julina (Logged In)</h1>
 	{{> loginButtons}}
-
+	<br><br>
 	{{> imageUpload}}
+	<br><br>
+	<ul>
+		{{#each images}}
+			{{> image}}
+		{{/each}}
+	</ul>
 </template>
 
 <template name="imageUpload">
 	<form class="imageUploadForm">
 		<input type="file" class="fileInput">
 	</form>
+</template>
+
+<template name="image">
+<li>
+Filename: {{filename}}
+<img src="{{this.url}}"/>
+</li>
 </template>

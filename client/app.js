@@ -1,3 +1,5 @@
+Meteor.subscribe("images");
+
 Template.imageUpload.events({
 	'change .fileInput': function(event, template) {
 		console.log("fileInput changed")
@@ -5,6 +7,20 @@ Template.imageUpload.events({
 		Images.insert(files[0], function (err, fileObj) {
 			//Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
 			console.log("inserted now file with id: ", fileObj._id);
+			console.log("err: " + err);
 		});
+	}
+});
+
+
+Template.App.helpers({
+	images: function() {
+		return Images.find({});
+	}
+});
+
+Template.image.helpers({
+	filename: function() {
+		return this.name();
 	}
 });
