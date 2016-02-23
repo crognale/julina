@@ -15,3 +15,16 @@ Images.allow({
 Meteor.publish("images", function() {
 	return Images.find();
 });
+
+Meteor.users.allow({
+	//For the user.images query, may need to improve security
+	'update': function() {
+		return true;
+	}
+});
+
+
+Meteor.publish("Meteor.users.images", function() {
+	return Meteor.users.find({}, {username: 1, images: 1});
+});
+
