@@ -28,3 +28,11 @@ Meteor.publish("Meteor.users.images", function() {
 	return Meteor.users.find({}, {username: 1, images: 1});
 });
 
+Art.allow({
+	'update': function() {
+		return true;
+	},
+	'insert': function() {
+		return true;
+	},
+});
