@@ -5,7 +5,7 @@
 	{{> imageUpload}}
 	<br><br>
 	<ul>
-		{{#each artworks}}
+		{{#each randArtworks}}
 			{{> artwork}}
 		{{/each}}
 	</ul>
@@ -20,6 +20,6 @@
 <template name="artwork">
 <li>
 User: {{username}}<br>
-<img src="{{image.url}}"/>
+<img src="{{image.url}}" width=100%/>
 </li>
 </template>

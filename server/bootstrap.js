@@ -1,3 +1,3 @@
 Meteor.startup(function () {
-	// code to run on server at startup
+	Artworks._ensureIndex({random: 1}); //Speed up random query
 });

@@ -9,7 +9,8 @@ Template.imageUpload.events({
 			//Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
 			Artworks.insert({
 				imgId: fileObj._id,
-				username: Meteor.user().username
+				username: Meteor.user().username,
+				random: Math.random()
 				//, critique questions, comments, etc
 			});
 		});
@@ -18,8 +19,20 @@ Template.imageUpload.events({
 
 
 Template.App.helpers({
-	artworks: function() {
-		return Artworks.find({});
+	randArtworks: function() {
+		if (Artworks.find().count() < 1) {
+			console.log("no artworks");
+			return [];
+		}
+
+		while(true) {
+			start = Math.random();
+			console.log("start: " + start);
+			results = Artworks.find({random: {$gt: start}}, {sort: {random:1}, limit: 1});
+			if(results.count() >= 1) {
+				return results;
+			}
+		}
 	}
 });
 
