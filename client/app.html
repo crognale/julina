@@ -5,8 +5,8 @@
 	{{> imageUpload}}
 	<br><br>
 	<ul>
-		{{#each images}}
-			{{> image}}
+		{{#each artworks}}
+			{{> artwork}}
 		{{/each}}
 	</ul>
 </template>
@@ -17,10 +17,9 @@
 	</form>
 </template>
 
-<template name="image">
+<template name="artwork">
 <li>
-Filename: {{filename}}
-User: {{username}}
-<img src="{{this.url}}"/>
+User: {{username}}<br>
+<img src="{{image.url}}"/>
 </li>
 </template>

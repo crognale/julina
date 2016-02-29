@@ -1,5 +1,5 @@
 Meteor.subscribe("images");
-Meteor.subscribe("Meteor.users.images");
+Meteor.subscribe("artworks");
 
 Template.imageUpload.events({
 	'change .fileInput': function(event, template) {
@@ -7,14 +7,10 @@ Template.imageUpload.events({
 		var files = event.target.files;
 		Images.insert(files[0], function (err, fileObj) {
 			//Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
-			console.log("inserted now file with id: ", fileObj._id);
-			console.log("err: " + err);
-			console.log("user: "+ Meteor.user().username);
-			console.log("userId: " + Meteor.userId());
-			Meteor.users.update(Meteor.userId(), {
-				$push: {
-					images: fileObj._id
-				}
+			Artworks.insert({
+				imgId: fileObj._id,
+				username: Meteor.user().username
+				//, critique questions, comments, etc
 			});
 		});
 	}
@@ -22,26 +18,16 @@ Template.imageUpload.events({
 
 
 Template.App.helpers({
-	images: function() {
-		return Images.find({});
+	artworks: function() {
+		return Artworks.find({});
 	}
 });
 
-Template.image.helpers({
-	filename: function() {
-		return this.name();
-	},
-
+Template.artwork.helpers({
 	username: function() {
-		query = {
-			images: {$in: [this._id]}
-		};
-
-		fields = {
-			username: 1
-		};
-
-		doc = Meteor.users.find(query, fields).fetch()[0];
-		return doc.username
+		return this.username;
+	},
+	image: function() {
+		return Images.find({_id: this.imgId}).fetch()[0];
 	}
 });
