@@ -4,11 +4,9 @@
 	<br><br>
 	{{> imageUpload}}
 	<br><br>
-	<ul>
-		{{#each randArtworks}}
-			{{> artwork}}
-		{{/each}}
-	</ul>
+	{{#each randArtworks}}
+		{{> artwork}}
+	{{/each}}
 </template>
 
 <template name="imageUpload">
@@ -18,8 +16,11 @@
 </template>
 
 <template name="artwork">
-<li>
 User: {{username}}<br>
-<img src="{{image.url}}" width=100%/>
-</li>
+<img src="{{image.url}}" style="max-height:400px"/><br>
+What do you think of this piece?
+<form class="feedbackForm">
+	<textarea rows="4" cols="80" class="feedbackInput"></textarea>
+	<input type="submit" value="Submit" class="feedbackSubmit">
+</form>
 </template>
