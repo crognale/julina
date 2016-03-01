@@ -1,0 +1,19 @@
+<template name="Critiques">
+<h1>Julina: My Critiques</h1>
+<a href="/">Play game</a><br>
+{{#each userArtworks}}
+	{{>artCritique}}
+{{/each}}
+</template>
+
+<template name="artCritique">
+<img src="{{image.url}}" style="max-height:400px"/><br>
+{{#each critiques}}
+{{>critique}}<br>
+{{/each}}
+<br><br>
+</template>
+
+<template name="critique">
+<b>{{this.user}}:</b> {{this.response}}
+</template>

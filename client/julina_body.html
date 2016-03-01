@@ -1,7 +1,11 @@
 <template name="Julina_body">
+<head>
+<!--TODO insert head data here -->
+</head>
 <body>
+{{> loginButtons}}<br>
 	{{#if currentUser}}
-		{{> App}}
+		{{>Template.dynamic template=content}}
 	{{else}}
 		{{> Login}}
 	{{/if}}

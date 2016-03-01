@@ -1,9 +1,8 @@
 <template name="App">
   <h1>Julina (Logged In)</h1>
-	{{> loginButtons}}
-	<br><br>
-	{{> imageUpload}}
-	<br><br>
+	<a href="/critiques">My Critiques</a><br><br>
+	Upload new work: {{> imageUpload}}
+	<br>
 	{{#each randArtworks}}
 		{{> artwork}}
 	{{/each}}
