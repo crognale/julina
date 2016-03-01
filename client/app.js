@@ -26,9 +26,9 @@ Template.App.helpers({
 		}
 
 		while(true) {
-			start = Math.random();
+			var start = Math.random();
 			console.log("start: " + start);
-			results = Artworks.find({random: {$gt: start}}, {sort: {random:1}, limit: 1});
+			var results = Artworks.find({random: {$gt: start}}, {sort: {random:1}, limit: 1});
 			if(results.count() >= 1) {
 				return results;
 			}
@@ -42,5 +42,23 @@ Template.artwork.helpers({
 	},
 	image: function() {
 		return Images.find({_id: this.imgId}).fetch()[0];
+	}
+});
+
+Template.artwork.events({
+	"submit .feedbackForm": function(event) {
+		//TODO is this necessary?
+		//event.preventDefault();
+
+		var text = event.target.feedbackInput.value;
+		console.log(text);
+		Artworks.update({_id: this._id},{
+			$push: {
+				critiques: {
+					response: text,
+					user: Meteor.user().username
+				}
+			}
+		});
 	}
 });
