@@ -33,9 +33,14 @@ Template.App.helpers({
 });
 
 function randArtworkId() {
-	//TODO inefficient doing query twice
-	if (Artworks.find({
-		"critiques.user" : {$nin: [Meteor.user().username]}}).count() < 1) {
+	var unseenArtworksQuery = {
+		$or: [
+		{"critiques":  []},
+		{"critiques.user": {$nin: [Meteor.user().username]}}
+		]
+	};
+
+	if (Artworks.find(unseenArtworksQuery).count() < 1) {
 		console.log("no artworks");
 		return [];
 	}
@@ -44,9 +49,7 @@ function randArtworkId() {
 		var start = Math.random();
 		console.log("start: " + start);
 		var results = Artworks.find({
-			$and: [{
-				"critiques.user": {$nin: [Meteor.user().username]}
-			},{
+			$and: [unseenArtworksQuery, {
 					random: {$gt: start}
 				}
 			]},
