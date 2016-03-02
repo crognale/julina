@@ -25,7 +25,9 @@ Template.App.helpers({
 		console.log("artwork_id: " + artwork_id);
 		if (artwork_id == undefined) {
 		 	artwork_id = randArtworkId();
-			Session.set("currentArtwork", artwork_id);
+			if (artwork_id !== "") {
+				Session.set("currentArtwork", artwork_id);
+			}
 		}
 		var artwork = Artworks.find({_id: artwork_id});
 		return artwork;
@@ -42,7 +44,7 @@ function randArtworkId() {
 
 	if (Artworks.find(unseenArtworksQuery).count() < 1) {
 		console.log("no artworks");
-		return [];
+		return "";
 	}
 
 	while(true) {
