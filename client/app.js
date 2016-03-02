@@ -10,7 +10,8 @@ Template.imageUpload.events({
 			Artworks.insert({
 				imgId: fileObj._id,
 				username: Meteor.user().username,
-				random: Math.random()
+				random: Math.random(),
+				critiques: []
 				//, critique questions, comments, etc
 			});
 		});
@@ -20,21 +21,44 @@ Template.imageUpload.events({
 
 Template.App.helpers({
 	randArtworks: function() {
-		if (Artworks.find().count() < 1) {
-			console.log("no artworks");
-			return [];
+		var artwork_id = Session.get("currentArtwork");
+		console.log("artwork_id: " + artwork_id);
+		if (artwork_id == undefined) {
+		 	artwork_id = randArtworkId();
+			Session.set("currentArtwork", artwork_id);
 		}
-
-		while(true) {
-			var start = Math.random();
-			console.log("start: " + start);
-			var results = Artworks.find({random: {$gt: start}}, {sort: {random:1}, limit: 1});
-			if(results.count() >= 1) {
-				return results;
-			}
-		}
+		var artwork = Artworks.find({_id: artwork_id});
+		return artwork;
 	}
 });
+
+function randArtworkId() {
+	//TODO inefficient doing query twice
+	if (Artworks.find({
+		"critiques.user" : {$nin: [Meteor.user().username]}}).count() < 1) {
+		console.log("no artworks");
+		return [];
+	}
+
+	while(true) {
+		var start = Math.random();
+		console.log("start: " + start);
+		var results = Artworks.find({
+			$and: [{
+				"critiques.user": {$nin: [Meteor.user().username]}
+			},{
+					random: {$gt: start}
+				}
+			]},
+			{
+				sort: {random:1}, limit: 1, _id: 1
+		});
+
+		if (results.count() >= 1){
+		return results.fetch()[0]._id;
+		}
+	}
+}
 
 Template.artwork.helpers({
 	username: function() {
@@ -47,8 +71,7 @@ Template.artwork.helpers({
 
 Template.artwork.events({
 	"submit .feedbackForm": function(event) {
-		//TODO is this necessary?
-		//event.preventDefault();
+		event.preventDefault();
 
 		var text = event.target.feedbackInput.value;
 		console.log(text);
@@ -60,5 +83,7 @@ Template.artwork.events({
 				}
 			}
 		});
+
+		Session.set("currentArtwork", randArtworkId);
 	}
 });
