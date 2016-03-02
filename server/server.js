@@ -9,6 +9,10 @@ Images.allow({
 	},
 	'download': function(userId, fileObj) {
 		return true;
+	},
+	'remove': function() {
+		//TODO improve security
+		return true;
 	}
 });
 
@@ -27,4 +31,8 @@ Artworks.allow({
 	'insert': function() {
 		return true;
 	},
+	'remove': function() {
+		//TODO improve security
+		return true;
+	}
 });

@@ -16,3 +16,11 @@ Template.artCritique.helpers({
 		return this.critiques;
 	}
 });
+
+Template.artCritique.events({
+	//TODO make secure
+	"click .delete": function() {
+		Images.remove({_id: this.imgId});
+		Artworks.remove({_id: this._id});
+	}
+});
