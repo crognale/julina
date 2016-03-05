@@ -1,8 +1,8 @@
 <template name="App">
   <h1>Julina (Logged In)</h1>
 	<a href="/critiques">My Critiques</a><br><br>
-	Upload new work: {{> imageUpload}}
-	<br>
+	{{> imageUpload}}
+	<br><br>
 	{{#each randArtworks}}
 		{{> artwork}}
 	{{/each}}
@@ -10,7 +10,8 @@
 
 <template name="imageUpload">
 	<form class="imageUploadForm">
-		<input type="file" class="fileInput">
+		<input type="file" id="fileInput" class="fileInput">
+		Upload your work: <label for="fileInput" class="button">Choose a file</label>
 	</form>
 </template>
 
@@ -19,7 +20,7 @@ User: {{username}}<br>
 <img src="{{image.url}}" style="max-height:400px"/><br>
 What do you think of this piece?
 <form class="feedbackForm">
-	<textarea rows="4" cols="80" name="feedbackInput"></textarea>
-	<input type="submit" value="Submit" class="feedbackSubmit">
+	<textarea rows="4" cols="80" name="feedbackInput"></textarea><br>
+	<button type="submit" class="button feedbackSubmit">Submit</button>
 </form>
 </template>

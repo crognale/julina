@@ -1,0 +1,27 @@
+body {
+	font-family: "Helvetica", sans-serif;
+	text-align: center;
+}
+
+.button {
+	background-color: #4CAF50;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	padding: 5px 10px;
+	text-align: center;
+}
+
+.button:hover {
+	background-color: #5CBF60
+}
+
+/* Make invisible so label can act in its place */
+.fileInput {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
