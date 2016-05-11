@@ -5,7 +5,7 @@
 <body>
 {{> loginButtons}}<br>
 	{{#if currentUser}}
-		{{>Template.dynamic template=content}}
+	{{>Template.dynamic template=content}}
 	{{else}}
 		{{> Login}}
 	{{/if}}
