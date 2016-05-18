@@ -3,7 +3,11 @@
 <!--TODO insert head data here -->
 </head>
 <body>
-{{> loginButtons}}<br>
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<div id="header">
+	<span class="usermenu">{{> loginButtons align="right"}}</span>
+	<img class="logo" src="/julinalogo.png"/>
+</div>
 	{{#if currentUser}}
 	{{>Template.dynamic template=content}}
 	{{else}}
