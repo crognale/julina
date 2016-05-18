@@ -2,9 +2,11 @@
 	<a href="/critiques">My Critiques</a><br><br>
 	{{> imageUpload}}
 	<br><br>
+	<div class="gamebox">
 	{{#each randArtworks}}
 		{{> artwork}}
 	{{/each}}
+	</div>
 </template>
 
 <template name="imageUpload">
