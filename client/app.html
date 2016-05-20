@@ -1,7 +1,7 @@
 <template name="App">
-	<a href="/critiques">My Critiques</a><br><br>
+	<br>
 	{{> imageUpload}}
-	<br><br>
+	<br>
 	<div class="gamebox">
 	{{#each randArtworks}}
 		{{> artwork}}
@@ -17,11 +17,21 @@
 </template>
 
 <template name="artwork">
-User: {{username}}<br>
-<img src="{{image.url}}" style="max-height:400px"/><br>
+<div class="critiques_link">
+<a href="/critiques">My Critiques</a>
+</div>
+<div class="prompt">
 What do you think of this piece?
+</div>
+<div class="art_section">
+User: {{username}}<br>
+<img class="art_img" src="{{image.url}}"/><br>
+</div>
+<img class="response_arrow" src="/responsearrow.jpg"/>
+<div class="feedback_form">
 <form class="feedbackForm">
-	<textarea rows="4" cols="80" name="feedbackInput"></textarea><br>
+	<textarea class="feedback_text" name="feedbackInput"></textarea><br>
 	<button type="submit" class="button feedbackSubmit">Submit</button>
 </form>
+</div>
 </template>

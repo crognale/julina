@@ -6,7 +6,9 @@
 <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <div id="header">
 	<span class="usermenu">{{> loginButtons align="right"}}</span>
-	<img class="logo" src="/julinalogo.png"/>
+	<a href="/app">
+		<img class="logo" src="/julinalogo.png"/>
+	</a>
 </div>
 	{{#if currentUser}}
 	{{>Template.dynamic template=content}}

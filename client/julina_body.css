@@ -28,16 +28,67 @@ html, body {
 .gamebox {
 	position: relative;
 	background-color: white;
-	margin-left:100px;
-	margin-right:100px;
+	margin-left:50px;
+	margin-right:40px;
 	margin-bottom: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 	border-radius:5px;
-	height:calc(100% - 180px);
-	min-height: 500px;
-	min-width: 500px;
+	height:calc(80% - 180px);
 }
 
+.critiques_link {
+	position: relative;
+	float: right;
+}
+.art_section {
+	position: relative;
+	float: left;
+}
 
+.art_img {
+	height:350px;
+}
+
+.prompt {
+	pointer-events: none;
+	position: relative;
+	float: center;
+	text-align: center;
+	padding-bottom: 20px;
+	font-size: 2em;
+}
+
+.response_arrow {
+	height:100px;
+	position: relative;
+	float: center;
+	margin-top:125px;
+}
+.feedback_form {
+	padding-top: 65px;
+	position: relative;
+	float: right;
+	text-align: right;
+}
+
+.feedback_text {
+	font-family: "Oswald", sans-serif;
+	font-size: 1em;
+	width: 400px;
+	height: 220px;
+	padding: 8px;
+	resize:none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.feedbackSubmit {
+	margin-top: 10px;
+}
 
 .logo {
 	height:50px;
@@ -52,6 +103,8 @@ html, body {
 }
 
 .button {
+	font-family: "Oswald", sans-serif;
+	font-size: 1em;
 	background-color: #4CAF50;
 	border: none;
 	border-radius: 5px;
