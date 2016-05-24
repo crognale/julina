@@ -36,8 +36,8 @@ html, body {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	border-radius:5px;
-	min-height: 500px;
 	max-width: 1000px;
+	overflow: auto;
 }
 
 .critiques_link {
@@ -50,8 +50,7 @@ html, body {
 }
 
 .art_img {
-	max-height:350px;
-	max-width: 400px;
+	width: 400px;
 }
 
 .prompt {
@@ -59,18 +58,23 @@ html, body {
 	position: relative;
 	float: center;
 	text-align: center;
-	padding-bottom: 20px;
-	font-size: 2em;
+	padding-bottom: 40px;
+	font-size: 1.75em;
+	line-height: 1em;
+	height: 2em;
+	width: 50%;
+	margin: 0 auto;
 }
 
 .response_arrow {
 	height:75px;
 	position: relative;
 	float: center;
-	margin-top:125px;
+	margin: 72.5px auto;
 }
+
 .feedback_form {
-	padding-top: 65px;
+	/*padding-top: 65px;*/
 	position: relative;
 	float: right;
 	text-align: right;
