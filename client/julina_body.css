@@ -64,7 +64,7 @@ html, body {
 }
 
 .response_arrow {
-	height:100px;
+	height:75px;
 	position: relative;
 	float: center;
 	margin-top:125px;

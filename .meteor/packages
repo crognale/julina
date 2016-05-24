@@ -26,3 +26,4 @@ standard-minifier-css
 standard-minifier-js
 iron:router
 houston:admin
+u2622:persistent-session
