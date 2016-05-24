@@ -33,6 +33,8 @@ cfs:tempstore@0.1.5
 cfs:upload-http@0.0.20
 cfs:worker@0.1.4
 check@1.2.1
+coffeescript@1.0.17
+dburles:mongo-collection-instances@0.3.4
 ddp@1.2.5
 ddp-client@1.2.7
 ddp-common@1.2.5
@@ -49,6 +51,7 @@ fastclick@1.0.11
 force-ssl@1.0.11
 geojson-utils@1.0.8
 hot-code-push@1.0.4
+houston:admin@2.0.7
 html-tools@1.0.9
 htmljs@1.0.9
 http@1.1.5
@@ -63,6 +66,7 @@ iron:router@1.0.12
 iron:url@1.0.11
 jquery@1.11.8
 kadira:blaze-layout@2.3.0
+lai:collection-extensions@0.1.4
 launch-screen@1.0.11
 less@2.6.0
 livedata@1.0.18
@@ -103,6 +107,7 @@ standard-minifier-css@1.0.6
 standard-minifier-js@1.0.6
 templating@1.1.9
 templating-tools@1.0.4
+tmeasday:paginated-subscription@0.2.4
 tracker@1.0.13
 ui@1.0.11
 underscore@1.0.8

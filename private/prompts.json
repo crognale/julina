@@ -1,0 +1,83 @@
+[
+{"category": "Description",
+	"prompt": "Comment on the composition of elements."
+},
+{"category": "Description",
+	"prompt": "Comment on the color."
+},
+{"category": "Description",
+	"prompt": "How would you describe the color palette used in this image?"
+},
+{"category": "Description",
+	"prompt": "Describe the elements of the work (i.e., line movement, light, space)"
+},
+{"category": "Description",
+	"prompt": "Describe the technical qualities of the work (i.e., tools, materials, instruments)"
+},
+{"category": "Description",
+	"prompt": "Describe the subject matter. What is it all about?"
+},
+{"category": "Analysis",
+	"prompt": "What similarities do you see throughout the work?"
+},
+{"category": "Analysis",
+	"prompt": "What are some points of emphasis in the work?"
+},
+{"category": "Analysis",
+	"prompt": "Describe this piece in 5 words."
+},
+{"category": "Interpretation",
+	"prompt": "Does the work remind you of some other things you have experienced?"
+},
+{"category": "Interpretation",
+	"prompt": "How does the work relate to other ideas/events in the world?"
+},
+{"category": "Interpretation",
+	"prompt": "What do you think were the goals of this artist?"
+},
+{"category": "Interpretation",
+	"prompt": "Does this piece seem more like one in a series or more stand-alone?"
+},
+{"category": "Interpretation",
+	"prompt": "What do you think inspired the artist?"
+},
+{"category": "Evaluation",
+	"prompt": "What qualities of the work make you feel it is a success or failure?"
+},
+{"category": "Evaluation",
+	"prompt": "What criteria can you list to help others judge this work?"
+},
+{"category": "Evaluation",
+	"prompt": "How original is the work, and why?"
+},
+{"category": "Evaluation",
+	"prompt": "Suggest how this piece could have been a bit stronger."
+},
+{"category": "Evaluation",
+	"prompt": "My favorite part of this piece is..."
+},
+{"category": "Miscellaneous",
+	"prompt": "If this were the first thing I saw in the morning, my day would be..."
+},
+{"category": "Miscellaneous",
+	"prompt": "I can see this being displayed in..."
+},
+{"category": "Miscellaneous",
+	"prompt": "My first reaction to this piece was..."
+},
+{"category": "Miscellaneous",
+	"prompt": "I would title this piece..."
+},
+{"category": "Miscellaneous",
+	"prompt": "If I received a free copy of this piece, I would give it to..."
+},
+{"category": "Miscellaneous",
+	"prompt": "If this piece were a person, what kind of music would it listen to?"
+},
+{"category": "Miscellaneous",
+	"prompt": "I would guess this artist is from..."
+},
+{"category": "Miscellaneous",
+	"prompt": "What was the first part of the piece your eyes went to?"
+}
+]

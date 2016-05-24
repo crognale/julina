@@ -25,3 +25,4 @@ ejson
 standard-minifier-css
 standard-minifier-js
 iron:router
+houston:admin

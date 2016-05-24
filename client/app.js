@@ -65,6 +65,16 @@ function randArtworkId() {
 	}
 }
 
+/* Uses the less efficient method, since there will probably be relatively
+ * few prompts.
+ */
+function randPromptId() {
+	var count = Prompts.find().count();
+	console.log(count + "prompts");
+	var p = Prompts.find().limit(-1).skip(count).next();
+	return p.fetch()[0]._id;
+}
+
 Template.artwork.helpers({
 	username: function() {
 		return this.username;

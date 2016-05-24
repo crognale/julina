@@ -20,6 +20,10 @@ Meteor.publish("images", function() {
 	return Images.find();
 });
 
+Meteor.publish("prompts", function() {
+	return Prompts.find();
+});
+
 Meteor.publish("artworks", function() {
 	return Artworks.find();
 });
