@@ -13,8 +13,12 @@
 </template>
 
 <template name="imageUpload">
+{{#if enoughPoints}}
 		<input type="file" id="fileInput" class="fileInput">
 		<label for="fileInput" class="imageUploadButton button">Upload</label>
+{{else}}
+		<label for="fileInput" class="imageUploadButton button disabled">Upload</label>
+{{/if}}
 </template>
 
 <template name="artwork">

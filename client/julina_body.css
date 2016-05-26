@@ -159,6 +159,14 @@ html, body {
 	text-align: center;
 }
 
+.button.disabled {
+	background-color: grey;
+}
+
+.button.disabled:hover {
+	background-color: grey;
+}
+
 .button:hover {
 	background-color: #5CBF60
 }

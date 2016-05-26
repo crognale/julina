@@ -6,6 +6,13 @@ Meteor.subscribe("playerRounds");
 
 userPoints = new Mongo.Collection("userPoints");
 
+Template.imageUpload.helpers({
+	enoughPoints: function () {
+		return getNumPoints() >= 30;
+	}
+});
+
+
 Template.imageUpload.events({
 	'change .fileInput': function(event, template) {
 		console.log("fileInput changed")
@@ -26,6 +33,9 @@ Template.imageUpload.events({
 
 			sAlert.success("Successfully uploaded!", {timeout: 5000});
 		});
+	},
+	'click .disabled':  function(event, template) {
+			sAlert.error("You need at least 30 points to upload your own work.", {timeout: 5000});
 	}
 });
 
@@ -57,11 +67,15 @@ Template.App.helpers({
 		return artwork;
 	},
 	numPoints: function() {
+		return getNumPoints();
+	}
+});
+
+function getNumPoints() {
 		var entry = userPoints.find({_id: Meteor.user().username}).fetch()[0];
 		if (entry == undefined) return 0;
 		return entry["total"]
-	}
-});
+}
 
 function randArtworkId() {
 	//TODO replace query. This is just a test to see if grouping works
