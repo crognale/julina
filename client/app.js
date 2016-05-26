@@ -49,12 +49,8 @@ Template.App.helpers({
 });
 
 function randArtworkId() {
-	var unseenArtworksQuery = {
-		$or: [
-		{"critiques":  []},
-		{"critiques.user": {$nin: [Meteor.user().username]}}
-		]
-	};
+	var unseenArtworksQuery = 
+		{"critiques.user": {$nin: [Meteor.user().username]}};
 
 	if (Artworks.find(unseenArtworksQuery).count() < 1) {
 		console.log("no artworks");
@@ -89,14 +85,15 @@ function getRandomInt(min, max) {
 
 
 /* Uses the less efficient method, since there will probably be relatively
- * few prompts.
+ * few prompts. Tries to choose a prompt that the user has not answered
+ * for the current picture.
  */
 function randPromptId() {
 	var count = Prompts.find().count();
 	console.log(count + "prompts");
-	var ind = getRandomInt(0, count-1)
+	var ind = getRandomInt(0, count-1);
 	var p = Prompts.find({}, {limit: 1, skip: ind});
-	console.log(p.fetch());
+	console.log("artworkId during randPromptId: ", Session.get("currentArtwork"));
 	return p.fetch()[0]._id;
 }
 
