@@ -18,7 +18,12 @@
 </template>
 
 <template name="artwork">
+<div class="userRound">
+	{{#each bubbles}}
+	<img class="bubble" src="bubbles/bubble{{this}}.png"/>
+	{{/each}}
 <img class="promptBanner" src="promptBanners/banner{{promptCategory}}.png"/>
+</div>
 <div class="critiques_link">
 <a href="/critiques">My Critiques</a>
 </div>

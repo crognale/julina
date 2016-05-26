@@ -2,6 +2,7 @@ Meteor.subscribe("images");
 Meteor.subscribe("artworks");
 Meteor.subscribe("prompts");
 Meteor.subscribe("userPoints");
+Meteor.subscribe("playerRounds");
 
 userPoints = new Mongo.Collection("userPoints");
 
@@ -133,6 +134,22 @@ Template.artwork.helpers({
 		return s;
 	},
 	promptCategory: function() {
+		return getPromptCategory()
+	},
+	bubbles: function() {
+		var round = [];
+		if (playerRounds.find().count() > 0) {
+			round = playerRounds.find({_id: Meteor.user().username}).fetch()[0]["round"];
+		}
+		round.push(getPromptCategory());
+		while (round.length < 8) {
+			round.push("None");
+		}
+		return round;
+	}
+});
+
+function getPromptCategory() {
 		var promptId = sessionGetPersistent("currentPrompt", randPromptId());
 		var s = promptString(promptId);
 		if (s == "" || s == undefined) {
@@ -140,8 +157,7 @@ Template.artwork.helpers({
 		}
 		var category = Prompts.find({"prompt": s}).fetch()[0]["category"];
 		return category;
-	}
-});
+}
 
 function promptString(promptId) {
 		var cursor = Prompts.find({_id: promptId});
@@ -169,6 +185,27 @@ Template.artwork.events({
 				}
 			}
 		});
+
+		//Update Round
+		if (playerRounds.find().count() == 0 || playerRounds.find({_id: Meteor.user().username}).count() == 0) {
+			console.log("updating round, new round");
+			playerRounds.insert({
+				_id: Meteor.user().username,
+				round: [getPromptCategory()]
+			});
+		}
+		var round = playerRounds.find({_id: Meteor.user().username}).fetch()[0]["round"];
+		if (round.length >= 7) {
+			round = [];
+		} else {
+			round.push(getPromptCategory());
+		}
+		playerRounds.update({_id: Meteor.user().username}, {
+			$set: {
+				"round": round
+			}
+		});
+
 
 		//Reset form field
 		event.target.reset()

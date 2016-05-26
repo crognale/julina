@@ -96,3 +96,21 @@ Meteor.publish('userPoints', function() {
 
 		ReactiveAggregate(this, Artworks, pipeline, {clientCollection: "userPoints"});
 });
+
+Meteor.publish("playerRounds", function() {
+	return playerRounds.find();
+});
+
+playerRounds.allow({
+	'update': function() {
+		return true;
+	},
+	'insert': function() {
+		return true;
+	},
+	'remove': function() {
+		//TODO improve security
+		return true;
+	}
+});
+

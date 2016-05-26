@@ -32,12 +32,12 @@ html, body {
 	float:center;
 	background-color: white;
 	margin: auto;
-	padding-left: 30px;
-	padding-right: 30px;
-	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
 	padding-bottom: 20px;
 	border-radius:5px;
-	max-width: 900px;
+	max-width: 1000px;
 	overflow: auto;
 }
 
@@ -57,13 +57,27 @@ html, body {
 	float: center;
 }
 
-.promptBanner {
+
+.userRound {
 	position:relative;
 	float: left;
-	height: 40px;
 	clear: right;
 	margin-bottom: 10px;
 }
+
+.bubble {
+	height: 40px;
+	position: relative;
+	float: left;
+	clear: right;
+}
+.promptBanner {
+	height: 40px;
+	position:relative;
+	float: left;
+	clear: left;
+}
+
 .critiques_link {
 	position: relative;
 	float: right;
