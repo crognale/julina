@@ -163,8 +163,15 @@ Template.artwork.events({
 			}
 		});
 
+		//Reset form field
+		event.target.reset()
+
 		//force current artwork and prompt to refresh
 		Session.set("currentArtwork", undefined);
 		Session.set("currentPrompt", undefined);
+
+		//Alert for new point
+		sAlert.info("You earned a point!");
+
 	}
 });

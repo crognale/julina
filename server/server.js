@@ -77,3 +77,7 @@ Meteor.publish('promptsPerArtwork', function() {
 		ReactiveAggregate(this, Artworks, pipeline, {clientCollection: "clientPromptsPerArtwork"});
 	}
 );
+
+
+Meteor.publish('userPoints', function() {
+});
