@@ -159,8 +159,11 @@ Template.artwork.helpers({
 	},
 	bubbles: function() {
 		var round = [];
-		if (playerRounds.find().count() > 0) {
-			round = playerRounds.find({_id: Meteor.user().username}).fetch()[0]["round"];
+		if (playerRounds.find().count() > 0 && playerRounds.find({_id: Meteor.user().username}).count() > 0){
+			record = playerRounds.find({_id: Meteor.user().username}).fetch()[0];
+			if (record != undefined) {
+				round = record["round"];
+			}
 		}
 		round.push(getPromptCategory());
 		while (round.length < 8) {
@@ -215,7 +218,7 @@ Template.artwork.events({
 			console.log("updating round, new round");
 			playerRounds.insert({
 				_id: Meteor.user().username,
-				round: [getPromptCategory()]
+				round: []
 			});
 		}
 		var round = playerRounds.find({_id: Meteor.user().username}).fetch()[0]["round"];
