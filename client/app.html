@@ -1,7 +1,10 @@
 <template name="App">
-	<br>
-	{{> imageUpload}}
-	<br>
+	<div class="rightbar">
+		{{> imageUpload}}<br>
+		<div class="points">
+			points: {{numPoints}}
+		</div>
+	</div>
 	<div class="gamebox">
 	{{#each randArtworks}}
 		{{> artwork}}

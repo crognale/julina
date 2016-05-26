@@ -1,6 +1,9 @@
 Meteor.subscribe("images");
 Meteor.subscribe("artworks");
 Meteor.subscribe("prompts");
+Meteor.subscribe("userPoints");
+
+userPoints = new Mongo.Collection("userPoints");
 
 Template.imageUpload.events({
 	'change .fileInput': function(event, template) {
@@ -45,6 +48,10 @@ Template.App.helpers({
 			Session.setPersistent("currentArtwork", artwork_id);
 		}
 		return artwork;
+	},
+	numPoints: function() {
+		var points = userPoints.find({_id: Meteor.user().username}).fetch()[0]["total"];
+		return points
 	}
 });
 

@@ -80,4 +80,19 @@ Meteor.publish('promptsPerArtwork', function() {
 
 
 Meteor.publish('userPoints', function() {
+	//Currently measured by total number of critiques
+	var pipeline = 
+		[
+		{
+			$unwind: "$critiques"
+		},
+		{
+			$group: {
+				_id: "$critiques.user",
+				total: {$sum: 1}
+			}
+		}
+		];
+
+		ReactiveAggregate(this, Artworks, pipeline, {clientCollection: "userPoints"});
 });

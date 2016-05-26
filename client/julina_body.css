@@ -23,6 +23,7 @@ html, body {
 	height: 50px;
 	padding-left: 0px;
 	box-shadow: 0px 3px 5px #888888;
+	margin-bottom: 30px;
 }
 
 
@@ -36,14 +37,24 @@ html, body {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	border-radius:5px;
-	max-width: 1000px;
+	max-width: 900px;
 	overflow: auto;
 }
 
-
-.imageUploadButton {
+.rightbar {
 	position: absolute;
 	right: 20px;
+}
+
+.points {
+	padding-top: 10px;
+	position: relative;
+	float: center;
+}
+
+.imageUploadButton {
+	position: relative;
+	float: center;
 }
 
 .promptBanner {
