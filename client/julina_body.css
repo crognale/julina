@@ -40,6 +40,13 @@ html, body {
 	overflow: auto;
 }
 
+.promptBanner {
+	position:relative;
+	float: left;
+	width: 300px;
+	clear: right;
+	margin-bottom: 10px;
+}
 .critiques_link {
 	position: relative;
 	float: right;
@@ -64,6 +71,7 @@ html, body {
 	height: 2em;
 	width: 50%;
 	margin: 0 auto;
+	clear: left;
 }
 
 .response_arrow {

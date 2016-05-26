@@ -124,6 +124,15 @@ Template.artwork.helpers({
 			s = promptString(promptId);
 		}
 		return s;
+	},
+	promptCategory: function() {
+		var promptId = sessionGetPersistent("currentPrompt", randPromptId());
+		var s = promptString(promptId);
+		if (s == "" || s == undefined) {
+			return ""
+		}
+		var category = Prompts.find({"prompt": s}).fetch()[0]["category"];
+		return category;
 	}
 });
 

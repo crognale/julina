@@ -26,19 +26,19 @@
 {"category": "Analysis",
 	"prompt": "Describe this piece in 5 words."
 },
-{"category": "Interpretation",
+{"category": "Judgment",
 	"prompt": "Does the work remind you of some other things you have experienced?"
 },
-{"category": "Interpretation",
+{"category": "Judgment",
 	"prompt": "How does the work relate to other ideas/events in the world?"
 },
-{"category": "Interpretation",
+{"category": "Judgment",
 	"prompt": "What do you think were the goals of this artist?"
 },
-{"category": "Interpretation",
+{"category": "Judgment",
 	"prompt": "Does this piece seem more like one in a series or more stand-alone?"
 },
-{"category": "Interpretation",
+{"category": "Judgment",
 	"prompt": "What do you think inspired the artist?"
 },
 {"category": "Evaluation",
@@ -56,28 +56,28 @@
 {"category": "Evaluation",
 	"prompt": "My favorite part of this piece is..."
 },
-{"category": "Miscellaneous",
+{"category": "Wildcard",
 	"prompt": "If this were the first thing I saw in the morning, my day would be..."
 },
-{"category": "Miscellaneous",
+{"category": "Wildcard",
 	"prompt": "I can see this being displayed in..."
 },
-{"category": "Miscellaneous",
+{"category": "Wildcard",
 	"prompt": "My first reaction to this piece was..."
 },
-{"category": "Miscellaneous",
+{"category": "Wildcard",
 	"prompt": "I would title this piece..."
 },
-{"category": "Miscellaneous",
+{"category": "Wildcard",
 	"prompt": "If I received a free copy of this piece, I would give it to..."
 },
-{"category": "Miscellaneous",
+{"category": "Wildcard",
 	"prompt": "If this piece were a person, what kind of music would it listen to?"
 },
-{"category": "Miscellaneous",
+{"category": "Wildcard",
 	"prompt": "I would guess this artist is from..."
 },
-{"category": "Miscellaneous",
+{"category": "Wildcard",
 	"prompt": "What was the first part of the piece your eyes went to?"
 }
 ]
