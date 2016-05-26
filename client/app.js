@@ -109,12 +109,23 @@ Template.artwork.helpers({
 	},
 	questionPrompt: function() {
 		var promptId = sessionGetPersistent("currentPrompt", randPromptId());
-		return promptString(promptId);
+		var s = promptString(promptId);
+		if (s == "" || s == undefined) {
+			promptId = randPromptId();
+			Session.set("currentPrompt", promptId);
+			s = promptString(promptId);
+		}
+		return s;
 	}
 });
 
 function promptString(promptId) {
-		return Prompts.find({_id: promptId}).fetch()[0]["prompt"];
+		var cursor = Prompts.find({_id: promptId});
+		if (cursor.count() < 1) {
+			return undefined;
+		}
+
+		return cursor.fetch()[0]["prompt"];
 }
 
 Template.artwork.events({
