@@ -12,6 +12,10 @@ Template.imageUpload.events({
 		var files = event.target.files;
 		Images.insert(files[0], function (err, fileObj) {
 			//Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
+			if (err) { 
+				return;
+			}
+
 			Artworks.insert({
 				imgId: fileObj._id,
 				username: Meteor.user().username,
@@ -19,6 +23,8 @@ Template.imageUpload.events({
 				critiques: []
 				//, critique questions, comments, etc
 			});
+
+			sAlert.success("Successfully uploaded!", {timeout: 5000});
 		});
 	}
 });
@@ -51,8 +57,9 @@ Template.App.helpers({
 		return artwork;
 	},
 	numPoints: function() {
-		var points = userPoints.find({_id: Meteor.user().username}).fetch()[0]["total"];
-		return points
+		var entry = userPoints.find({_id: Meteor.user().username}).fetch()[0];
+		if (entry == undefined) return 0;
+		return entry["total"]
 	}
 });
 
@@ -186,6 +193,9 @@ Template.artwork.events({
 			}
 		});
 
+		//Alert for new point
+		sAlert.info("You earned a point!");
+
 		//Update Round
 		if (playerRounds.find().count() == 0 || playerRounds.find({_id: Meteor.user().username}).count() == 0) {
 			console.log("updating round, new round");
@@ -196,6 +206,7 @@ Template.artwork.events({
 		}
 		var round = playerRounds.find({_id: Meteor.user().username}).fetch()[0]["round"];
 		if (round.length >= 7) {
+			sAlert.success("You finished a round!", {timeout: 5000});
 			round = [];
 		} else {
 			round.push(getPromptCategory());
@@ -214,8 +225,6 @@ Template.artwork.events({
 		Session.set("currentArtwork", undefined);
 		Session.set("currentPrompt", undefined);
 
-		//Alert for new point
-		sAlert.info("You earned a point!");
 
 	}
 });

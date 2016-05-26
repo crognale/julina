@@ -61,17 +61,17 @@ html, body {
 	position:relative;
 	float: left;
 	clear: right;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 
 .bubble {
-	height: 40px;
+	height: 35px;
 	position: relative;
 	float: left;
 	clear: right;
 }
 .promptBanner {
-	height: 40px;
+	height: 35px;
 	position:relative;
 	float: left;
 	clear: left;
