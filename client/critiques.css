@@ -1,0 +1,26 @@
+.artCritique {
+	position:relative;
+	float: left;
+	clear: left;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.critiqueRHS {
+	padding-left: 10px;
+	text-align: left;
+	overflow: hidden;
+}
+
+.critiqueImage{
+	width: 200px;
+	position:relative;
+	float:left;
+}
+
+.delete {
+	vertical-align:top
+}
+
+.critique {
+}

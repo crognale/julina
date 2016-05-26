@@ -9,14 +9,19 @@
 </template>
 
 <template name="artCritique">
-<img src="{{image.url}}" style="max-height:400px"/><br>
-<button class="button delete">Delete</button><br>
-{{#each critiques}}
-{{>critique}}<br>
-{{/each}}
-<br><br>
+<div class="artCritique">
+	<img class="critiqueImage" src="{{image.url}}" />
+	<div class="critiqueRHS">
+		<button class="button delete">Delete</button><br>
+		{{#each critiques}}
+		{{>critique}}<br>
+		{{/each}}
+	</div>
+</div>
 </template>
 
 <template name="critique">
+<div class="critique">
 {{this.prompt}} <b>{{this.user}}:</b> {{this.response}}
+</div>
 </template>
