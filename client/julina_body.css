@@ -88,6 +88,9 @@ html, body {
 
 .art_img {
 	width: 400px;
+	cursor: -moz-zoom-in; 
+	cursor: -webkit-zoom-in; 
+	cursor: zoom-in;
 }
 
 .prompt {
