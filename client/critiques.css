@@ -43,3 +43,21 @@
 .critique {
 	font-size:1.2em;
 }
+
+.title {
+	position: relative;
+	font-size: 1.5em;
+	line-height:0.2em;
+	margin: auto;
+}
+
+.titleSection{
+	position: relative;
+	max-width: 1000px;
+	margin: auto;
+}
+
+.playGameLink {
+	position: relative;
+	float:right;
+}

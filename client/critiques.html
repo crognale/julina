@@ -1,6 +1,10 @@
 <template name="Critiques">
-<h1>My Critiques</h1>
-<a href="/app">Play game</a><br>
+<div class="titleSection">
+<div class="title">
+My Critiques
+</div>
+<a class="playGameLink" href="/app">Play game</a><br>
+</div>
 	{{#each userArtworks}}
 <div class="critiqueBox gamebox">
 	{{>artCritique}}

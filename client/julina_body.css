@@ -29,7 +29,6 @@ html, body {
 
 .gamebox {
 	position: relative;
-	float:center;
 	background-color: white;
 	margin: auto;
 	padding-left: 20px;
