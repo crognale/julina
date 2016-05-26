@@ -39,6 +39,11 @@ Template.App.helpers({
 	randArtworks: function() {
 		var artwork_id = sessionGetPersistent("currentArtwork", randArtworkId());
 		var artwork = Artworks.find({_id: artwork_id});
+		if (artwork.count() < 1) {
+			artwork_id = randArtworkId();
+		  artwork = Artworks.find({_id: artwork_id});
+			Session.set("currentArtwork", artwork_id);
+		}
 		return artwork;
 	}
 });
