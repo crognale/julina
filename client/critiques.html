@@ -1,9 +1,11 @@
 <template name="Critiques">
 <h1>My Critiques</h1>
 <a href="/app">Play game</a><br>
-{{#each userArtworks}}
-	{{>artCritique}}
-{{/each}}
+<div class="gamebox">
+	{{#each userArtworks}}
+		{{>artCritique}}
+	{{/each}}
+</div>
 </template>
 
 <template name="artCritique">
