@@ -42,7 +42,7 @@ Template.App.helpers({
 		if (artwork.count() < 1) {
 			artwork_id = randArtworkId();
 		  artwork = Artworks.find({_id: artwork_id});
-			Session.set("currentArtwork", artwork_id);
+			Session.setPersistent("currentArtwork", artwork_id);
 		}
 		return artwork;
 	}
@@ -112,7 +112,7 @@ Template.artwork.helpers({
 		var s = promptString(promptId);
 		if (s == "" || s == undefined) {
 			promptId = randPromptId();
-			Session.set("currentPrompt", promptId);
+			Session.setPersistent("currentPrompt", promptId);
 			s = promptString(promptId);
 		}
 		return s;
