@@ -49,8 +49,19 @@ Template.App.helpers({
 });
 
 function randArtworkId() {
+	//TODO replace query. This is just a test to see if grouping works
+	/*
 	var unseenArtworksQuery = 
 		{"critiques.user": {$nin: [Meteor.user().username]}};
+		*/
+	var unseenArtworksQuery = {};
+
+	//TODO ACTUALLY NEED list of artworks with < (5) comments from user
+	/*
+	Meteor.call("userAnsweredPrompts", function(err, result) {
+		console.log(result);
+	});
+	*/
 
 	if (Artworks.find(unseenArtworksQuery).count() < 1) {
 		console.log("no artworks");

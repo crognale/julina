@@ -1,5 +1,8 @@
 Meteor.subscribe("images");
 Meteor.subscribe("artworks");
+Meteor.subscribe("promptsPerArtwork");
+
+clientPromptsPerArtwork = new Mongo.Collection("clientPromptsPerArtwork");
 
 Template.Critiques.helpers({
 	userArtworks: function() {
@@ -12,10 +15,11 @@ Template.artCritique.helpers({
 		return Images.find({_id: this.imgId}).fetch()[0];
 	},
 
-	critiques: function() {
-		return this.critiques;
+	prompts: function() {
+		return clientPromptsPerArtwork.find({_id: this._id}).fetch()[0]["prompts"];
 	}
 });
+
 
 Template.artCritique.events({
 	//TODO make secure

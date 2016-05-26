@@ -4,23 +4,38 @@
 	clear: left;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	width: 100%
 }
 
 .critiqueRHS {
-	padding-left: 10px;
+	margin-right: 0px;
+	padding-left: 40px;
 	text-align: left;
 	overflow: hidden;
 }
 
+.critiqueLHS {
+}
+
 .critiqueImage{
-	width: 200px;
+	width: 300px;
 	position:relative;
 	float:left;
 }
 
-.delete {
-	vertical-align:top
+.gamebox.critiqueBox {
+	margin-bottom: 20px;
 }
 
-.critique {
+.delete {
+	position:relative;
+	float: left;
+	clear: left;
+	vertical-align:top;
+	margin-top: 10px;
+}
+
+.critiquePrompt {
+	color: #20c0f1;
+	font-size:1.5em;
 }

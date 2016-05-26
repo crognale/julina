@@ -1,27 +1,36 @@
 <template name="Critiques">
 <h1>My Critiques</h1>
 <a href="/app">Play game</a><br>
-<div class="gamebox">
 	{{#each userArtworks}}
-		{{>artCritique}}
-	{{/each}}
+<div class="critiqueBox gamebox">
+	{{>artCritique}}
 </div>
+	{{/each}}
 </template>
 
 <template name="artCritique">
 <div class="artCritique">
+	<div class="critiqueLHS">
 	<img class="critiqueImage" src="{{image.url}}" />
+	<button class="button delete">Delete</button>
+</div>
 	<div class="critiqueRHS">
-		<button class="button delete">Delete</button><br>
-		{{#each critiques}}
-		{{>critique}}<br>
+		{{#each prompts}}
+		{{>prompt}}<br>
 		{{/each}}
 	</div>
 </div>
 </template>
 
-<template name="critique">
-<div class="critique">
-{{this.prompt}} <b>{{this.user}}:</b> {{this.response}}
+<template name="prompt">
+<div class="critiquePrompt">
+	{{this.prompt}}
 </div>
+	{{#each this.critiques}}
+	{{>critique}}<br>
+	{{/each}}
+</template>
+
+<template name="critique">
+{{this.user}}: {{this.response}}
 </template>

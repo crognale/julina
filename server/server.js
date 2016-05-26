@@ -40,3 +40,40 @@ Artworks.allow({
 		return true;
 	}
 });
+
+Meteor.publish('promptsPerArtwork', function() {
+		//Critiques per prompt per artwork
+		/*
+			{
+				$match: {username: user}
+			},
+			*/
+		var pipeline = 
+		[
+			{
+				$unwind: "$critiques"
+			},
+			{
+				$project: {_id: 1, critiques: 1}
+			},
+			{
+				$group: {
+					_id:{artworkId: "$_id", prompt: "$critiques.prompt"},
+					critiques: {$push: {user: "$critiques.user", response: "$critiques.response"}}
+				}
+			},
+			{
+				$group: {
+					_id: "$_id.artworkId",
+					prompts: {$push: {prompt: "$_id.prompt", critiques: "$critiques"}}
+				}
+			}
+	];
+
+	/*
+		cursor = Artworks.aggregate(pipeline);
+		return cursor;
+		*/
+		ReactiveAggregate(this, Artworks, pipeline, {clientCollection: "clientPromptsPerArtwork"});
+	}
+);
