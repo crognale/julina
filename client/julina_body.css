@@ -40,6 +40,12 @@ html, body {
 	overflow: auto;
 }
 
+
+.imageUploadButton {
+	position: absolute;
+	right: 20px;
+}
+
 .promptBanner {
 	position:relative;
 	float: left;
