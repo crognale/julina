@@ -131,9 +131,3 @@ html, body {
 	position: absolute;
 	z-index: -1;
 }
-
-/* To hide white box when including lightbox */
-.lb-outerContainer {
-	width: 0px;
-	height: 0px;
-}
