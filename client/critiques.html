@@ -27,10 +27,12 @@
 	{{this.prompt}}
 </div>
 	{{#each this.critiques}}
-	{{>critique}}<br>
+	{{>critique}}
 	{{/each}}
 </template>
 
 <template name="critique">
-{{this.user}}: {{this.response}}
+	<div class="critique">
+		<b>{{this.user}}</b>: {{this.response}}
+</div>
 </template>
